@@ -38,4 +38,12 @@ docker build -t mon_image . construire le conteneur (. pour rep courant)
 docker run : lancer le conteneur avec la commande docker run
 docker run -d -p 3001:3001 mon_conteneur
 
-interopérabilité: capacité dun système à communiquer avec d autres systèmes simplement 
+interopérabilité: capacité dun système à communiquer avec d autres systèmes simplement
+
+
+
+
+
+-----------------------------------Groupadd
+la commande groupadd docker regarde si un groupe existe avec le nom "docker" si il n'existe pas, elle le créee 
+la commande gpasswd -a nomuser docker ajoute l'utilisateur en question au groupe "docker"
