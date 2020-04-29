@@ -1,0 +1,41 @@
+image : fichier immuable correspondant à la cature instantanée d'un conteneur
+les images produisent un conteneur avec la commande run 
+
+conteneur docker : instance éxécutable d'unz image
+boite executée d'une certaine manière
+exemple poo
+image = classe
+conteneur = instance d'une classe 
+
+docker pull : dl image
+docker images: afficher images dl
+docker run: lancer un conteneur (-d pour detacher le conteneur de la console) (-p 8080:80 pour definir l'utilisation des ports)
+docker run -t -d conteneur
+docker search: chercher une image déjà faite avec des mots clés
+docker exec -it IDDUCONTENEUR bash : rentrer dans le conteneur conteneur 
+docker stop IDDUCONTNEUR : stop un conteneur démarré
+docker rm ID: détruire le conteneur
+docker rm -i : détruire une image
+docker ps: voir les processus/conteneurs qui sont actifs, ils sont soit up (docker ps), soit terminés (docker ps -a)
+docker system prune : suprime les conteneurs qui ne sont pas actifs, les reseaux et images  non utilséees 
+
+CReer DockerFile
+FROM ubuntu:18 (image que nous utilisons comme base)
+
+RUN apt-get update && apt-get install curl lamp etc (éxécuter une commande sur le conteneur)
+RUN npm install
+ADD ./folder/ (copier fichiers dans notre image) 
+
+WORKDIR /folder (modifier repertoire courant)
+EXPOSE 3001(port sur lequel l'app ecoute)
+VOLUME /app/logs (repertoires partagees avec lhost)
+CMD npm run start (commandes qui sont lancees au demarage du conteneur)
+
+.dockerignore on ne copie aps certains fichiers dans notre conteneur dans le ADD
+
+
+docker build -t mon_image . construire le conteneur (. pour rep courant)
+docker run : lancer le conteneur avec la commande docker run
+docker run -d -p 3001:3001 mon_conteneur
+
+interopérabilité: capacité dun système à communiquer avec d autres systèmes simplement 
